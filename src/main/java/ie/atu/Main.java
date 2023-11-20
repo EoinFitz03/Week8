@@ -27,10 +27,11 @@ public class Main {
             e.printStackTrace();
         }
 
-        try (FileWriter writer = new FileWriter(fileName1)){
+        try (FileWriter writer = new FileWriter(fileName1,true)){
             // Create a new file on the disk
 
-        writer.write("some content for file");
+        writer.write("need to go for breakfast");
+        System.out.println("This has run succesfully");
 
         }
         catch(IOException e){
