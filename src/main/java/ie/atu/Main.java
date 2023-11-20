@@ -2,14 +2,17 @@ package ie.atu;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.FileWriter;
 
 public class Main {
     public static void main(String[] args) {
         //specify the file name
         String fileName = "File.txt";
 
+
         // Create a file object
         File myFile = new File(fileName);
+        String fileName1 = "file2.txt";
 
         try {
             // Create a new file on the disk
@@ -24,5 +27,17 @@ public class Main {
             e.printStackTrace();
         }
 
+        try (FileWriter writer = new FileWriter(fileName1)){
+            // Create a new file on the disk
+
+        writer.write("some content for file");
+
+        }
+        catch(IOException e){
+            System.out.println("An error occured while creating this file. ");
+            e.printStackTrace();
+        }
     }
+
+
 }
