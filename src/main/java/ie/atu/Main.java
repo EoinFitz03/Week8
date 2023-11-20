@@ -3,6 +3,7 @@ package ie.atu;
 import java.io.File;
 import java.io.IOException;
 import java.io.FileWriter;
+import java.io.PrintWriter;
 
 public class Main {
     public static void main(String[] args) {
@@ -13,6 +14,7 @@ public class Main {
         // Create a file object
         File myFile = new File(fileName);
         String fileName1 = "file2.txt";
+
 
         try {
             // Create a new file on the disk
@@ -27,11 +29,13 @@ public class Main {
             e.printStackTrace();
         }
 
-        try (FileWriter writer = new FileWriter(fileName1,true)){
+
+
+        try (PrintWriter writer = new PrintWriter(new FileWriter(fileName1,true))){
             // Create a new file on the disk
 
-        writer.write("need to go for breakfast");
-        System.out.println("This has run succesfully");
+        writer.println("need to go for breakfast");
+        writer.printf("appended formatted content ");
 
         }
         catch(IOException e){
